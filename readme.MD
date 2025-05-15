@@ -10,3 +10,4 @@ docker run -d --name backend-container --network minha-rede -p 8000:8000 \
 ocker run -it --rm -p 5173:5173 frontend-image
 ----------------------------------------------------------------------------------
 instalar o docker compose up
+docker-compose up --build
