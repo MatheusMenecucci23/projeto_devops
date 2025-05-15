@@ -6,12 +6,15 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+import os
+
 db_config = {
-    'user': 'root',
-    'password': 'sua_senha',
-    'host': 'localhost',
-    'database': 'calculadora_db',
+    'user': os.getenv('DB_USER', 'root'),
+    'password': os.getenv('DB_PASSWORD', ''),
+    'host': os.getenv('DB_HOST', 'localhost'),
+    'database': os.getenv('DB_NAME', ''),
 }
+
 
 origins = [
     "http://localhost:5173",  # porta do seu frontend Vue
