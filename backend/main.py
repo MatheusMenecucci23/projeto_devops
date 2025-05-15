@@ -18,7 +18,8 @@ db_config = {
 
 origins = [
     "http://localhost:5173",  # porta do seu frontend Vue
-    "http://localhost",       # pode adicionar outros domínios se quiser
+    "http://localhost",
+    "http://:5173",  # porta do seu frontend Vue
 ]
 
 app.add_middleware(
@@ -47,7 +48,7 @@ def save_operation(expression, result):
 
 
 @app.post("/calculate")
-def calculate(expr: Expression):
+async def calculate(expr: Expression):
     # Permitir só números, espaços, operadores básicos e parênteses
     if not re.match(r'^[0-9+\-*/().\s]+$', expr.expression):
         return {"error": "Expressão contém caracteres inválidos."}
