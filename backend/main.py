@@ -11,7 +11,7 @@ import os
 db_config = {
     'user': os.getenv('DB_USER', 'root'),
     'password': os.getenv('DB_PASSWORD', ''),
-    'host': os.getenv('DB_HOST', 'localhost'),
+    'host': os.getenv('DB_HOST', 'db'),
     'database': os.getenv('DB_NAME', ''),
 }
 
@@ -19,7 +19,6 @@ db_config = {
 origins = [
     "http://localhost:5173",  # porta do seu frontend Vue
     "http://localhost",
-    "http://:5173",  # porta do seu frontend Vue
 ]
 
 app.add_middleware(

@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS calculadora_db;
+USE calculadora_db;
+
+CREATE TABLE IF NOT EXISTS history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    expression VARCHAR(255) NOT NULL,
+    result DOUBLE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
