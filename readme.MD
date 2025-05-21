@@ -80,5 +80,3 @@ docker-compose up --build
 - **Rede Docker:** Usar uma rede customizada permite que os containers se comuniquem facilmente pelo nome do container (exemplo: `mysql-container`).
 
 ---
-
-Se precisar de ajuda para criar o arquivo `docker-compose.yml` ou para melhorar o setup, posso ajudar também!
