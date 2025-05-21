@@ -1,24 +1,18 @@
-# Guia de Instalação e Execução do Projeto com Docker
+# Projeto Docker - Calculadora
 
-## Pré-requisitos
-- Docker instalado na sua máquina  
-- Docker Compose instalado (se for usar Docker Compose)  
+Este projeto utiliza Docker para orquestrar os containers do MySQL, backend e frontend, conectados em uma rede Docker customizada.
 
 ---
 
-## Passo 1: Instalar o Docker
+## Comandos para rodar o ambiente Docker
 
-Siga as instruções oficiais para instalar o Docker na sua plataforma:  
-https://docs.docker.com/get-docker/
-
----
-
-## Passo 2: Criar uma rede Docker para comunicação entre containers
+### 1. Criar a rede Docker
 
 ```bash
 docker network create minha-rede
+```
 
-## Passo 3: Executar o container do MySQL
+### 2. Rodar o container MySQL
 
 ```bash
 docker run -d --name mysql-container --network minha-rede \
@@ -26,77 +20,65 @@ docker run -d --name mysql-container --network minha-rede \
   -e MYSQL_DATABASE=calculadora_db \
   -p 3307:3306 \
   mysql:8.0
+```
 
-## Passo 4: Executar o container do backend
+### 3. Rodar o container Backend
 
 ```bash
-docker run -d --name backend-container --network minha-rede \
-  -p 8000:8000 \
+docker run -d --name backend-container --network minha-rede -p 8000:8000 \
   -e DB_USER=root \
   -e DB_PASSWORD=123456789 \
   -e DB_HOST=mysql-container \
   -e DB_NAME=calculadora_db \
   backend-image
+```
 
-## Passo 5: Executar o container do frontend
+### 4. Rodar o container Frontend
 
 ```bash
 docker run -it --rm -p 5173:5173 frontend-image
+```
 
-## Passo 6: Usar Docker Compose para subir toda a aplicação
+---
+
+## Usando Docker Compose
+
+Para facilitar o gerenciamento dos containers, utilize o Docker Compose. 
+
+### Comando para subir os containers com build
+
+```bash
 docker-compose up --build
+```
 
+---
 
-## Dicas Úteis para Docker
+## Dicas úteis sobre Docker
 
-- **Listar todos os containers ativos:**
-
-  ```bash
-  docker ps
-  ```
-
-- **Parar todos os containers em execução:**
-
-  ```bash
-  docker stop $(docker ps -q)
-  ```
-
-- **Remover todos os containers parados:**
-
-  ```bash
-  docker rm $(docker ps -aq)
-  ```
-
-- **Acessar o terminal de um container em execução:**
+- **Volumes:** Para persistência de dados do MySQL, considere usar volumes Docker para não perder os dados ao parar o container.
+- **Logs:** Use `docker logs <container>` para visualizar logs e ajudar na depuração.
+- **Interação:** Para acessar o shell de um container em execução, utilize:
 
   ```bash
   docker exec -it <nome-do-container> bash
   ```
-
-- **Visualizar logs de um container em tempo real:**
-
-  ```bash
-  docker logs -f <nome-do-container>
-  ```
-
-- **Reconstruir imagens e reiniciar containers com Docker Compose:**
+- **Listar containers:**
 
   ```bash
-  docker-compose up --build
+  docker ps -a
   ```
-
-- **Listar imagens Docker locais:**
+- **Parar todos os containers:**
 
   ```bash
-  docker images
+  docker stop $(docker ps -aq)
   ```
-
-- **Remover imagens Docker não utilizadas:**
+- **Remover todos os containers:**
 
   ```bash
-  docker image prune
+  docker rm $(docker ps -aq)
   ```
+- **Rede Docker:** Usar uma rede customizada permite que os containers se comuniquem facilmente pelo nome do container (exemplo: `mysql-container`).
 
 ---
 
-
+Se precisar de ajuda para criar o arquivo `docker-compose.yml` ou para melhorar o setup, posso ajudar também!
