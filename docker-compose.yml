@@ -3,16 +3,16 @@ version: "3.3"
 services:
   db:
     image: mysql:8.0
-    restart: always
-    environment:
+    restart: always # garante que o container reinicie automaticamente se parar.
+    environment: 
       MYSQL_ROOT_PASSWORD: 123456789
       MYSQL_DATABASE: calculadora_db
     volumes:
-      - db_data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # descomente se usar script inicial
-    ports:
-      - "3307:3306"
-    networks:
+      - db_data:/var/lib/mysql #conexao entre o volume(db_data) fora do conteiner com o caminho dentro do conteiner(/var/lib/mysql)
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # usando o script para criar a tb
+    ports: 
+      - "3307:3306" #<porta-do-host>:<porta-do-container> serve para voce acessar seu servico pelo computador(utilizando a porta do host)
+    networks: #definindo a rede de acesso
       - minha-rede
 
   backend:
@@ -39,9 +39,9 @@ services:
     networks:
       - minha-rede
 
-networks:
+networks: #definindo a rede compartilhada
   minha-rede:
 
-volumes:
+volumes: #volume externo que armazena os dados de forma persistente(espaco reservado do SO host)
   db_data:
 
