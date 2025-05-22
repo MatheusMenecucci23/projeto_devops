@@ -68,6 +68,12 @@ docker compose up --build
   ```bash
   docker exec -it <nome-do-container> bash
   ```
+- **Interação:** Para acessar o banco de dados execução, utilize:
+```bash
+docker exec -it <nome-do-conteiner> mysql -u root -p
+```
+```bash
+  ```
 - **Listar containers:**
 
   ```bash
