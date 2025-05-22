@@ -5,14 +5,18 @@ Este projeto utiliza Docker para orquestrar os containers do MySQL, backend e fr
 ---
 
 ## Comandos para rodar o ambiente Docker
+### 1. Buildar as imagens
+```bash
+docker build -t backend-image .
+```
 
-### 1. Criar a rede Docker
+### 2. Criar a rede Docker
 
 ```bash
 docker network create minha-rede
 ```
 
-### 2. Rodar o container MySQL
+### 3. Rodar o container MySQL
 
 ```bash
 docker run -d --name mysql-container --network minha-rede \
@@ -22,7 +26,7 @@ docker run -d --name mysql-container --network minha-rede \
   mysql:8.0
 ```
 
-### 3. Rodar o container Backend
+### 4. Rodar o container Backend
 
 ```bash
 docker run -d --name backend-container --network minha-rede -p 8000:8000 \
@@ -33,7 +37,7 @@ docker run -d --name backend-container --network minha-rede -p 8000:8000 \
   backend-image
 ```
 
-### 4. Rodar o container Frontend
+### 5. Rodar o container Frontend
 
 ```bash
 docker run -it --rm -p 5173:5173 frontend-image
