@@ -58,9 +58,9 @@ docker compose up --build
 ```
 Acessar via http://localhost/
 
-Após as operações, para verificar a inserção no banco de dados só rodar 
+Após as operações, para verificar a inserção no banco de dados só rodar:
   ```bash
-  docker exec -it <nome-do-conteiner> mysql -u root -p
+  docker exec -it projeto_devops-db-1  mysql -u root -p
   ```
  ```bash
   select * from calculadora_db.history
