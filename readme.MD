@@ -8,6 +8,7 @@ Este projeto utiliza Docker para orquestrar os containers do MySQL, backend e fr
 ### 1. Buildar as imagens
 ```bash
 docker build -t backend-image .
+docker build -t frontend-image .
 ```
 
 ### 2. Criar a rede Docker
