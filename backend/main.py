@@ -54,7 +54,6 @@ async def calculate(expr: Expression):
 
     try:
         # Avalia a expressão com eval
-        # Atenção: aqui é simplificado, não execute eval em ambiente de produção sem filtros!
         result = eval(expr.expression, {"__builtins__": None}, {})
     except Exception as e:
         return {"error": f"Erro na avaliação da expressão: {e}"}
