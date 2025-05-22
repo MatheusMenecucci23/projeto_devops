@@ -1,7 +1,7 @@
 # Projeto Docker - Calculadora
 
 Este projeto utiliza Docker para orquestrar os containers do MySQL, backend e frontend, conectados em uma rede Docker customizada. 
-Este projeto consiste em uma calculadora interativa desenvolvida como parte de um case técnico para um processo seletivo. Ao inserir os números e selecionar as operações, o resultado é exibido ao pressionar o botão =. Além disso, todo o histórico de cálculos realizados é armazenado em um banco de dados, permitindo rastrear e consultar operações anteriores.
+Este projeto consiste em uma calculadora interativa Ao inserir os números e selecionar as operações, o resultado é exibido ao pressionar o botão =. Além disso, todo o histórico de cálculos realizados é armazenado em um banco de dados, permitindo rastrear e consultar operações anteriores.
 
 ---
 
