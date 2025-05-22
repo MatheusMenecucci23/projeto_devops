@@ -62,7 +62,7 @@ Após as operações, para verificar a inserção no banco de dados só rodar:
   ```bash
   docker exec -it projeto_devops-db-1  mysql -u root -p
   ```
- ```bash
+  ```bash
   select * from calculadora_db.history
   ```
 ---
