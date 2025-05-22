@@ -64,7 +64,7 @@ Após as operações, para verificar a inserção no banco de dados só rodar no
   ```
 No prompt do MySQL, execute o comando para visualizar os dados da tabela history no banco calculadora_db
   ```bash
-  select * from calculadora_db.history
+  select * from calculadora_db.history;
   ```
 ---
 
