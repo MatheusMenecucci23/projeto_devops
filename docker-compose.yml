@@ -1,6 +1,7 @@
 services:
   db:
     image: mysql:8.0
+    container_name: projeto_devops-db-1
     restart: always # garante que o container reinicie automaticamente se parar.
     environment: 
       MYSQL_ROOT_PASSWORD: 123456789
@@ -12,6 +13,7 @@ services:
       - minha-rede
 
   backend:
+    container_name: projeto_devops-backend-1
     build: ./backend
     depends_on:
       - db
@@ -24,6 +26,7 @@ services:
       - minha-rede
 
   frontend:
+    container_name: projeto_devops-frontend-1
     build: ./frontend
     depends_on:
       - backend
