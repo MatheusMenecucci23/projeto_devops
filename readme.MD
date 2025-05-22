@@ -53,7 +53,7 @@ Para facilitar o gerenciamento dos containers, utilize o Docker Compose.
 ### Comando para subir os containers com build
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 ---
