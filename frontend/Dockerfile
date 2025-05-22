@@ -1,4 +1,5 @@
-FROM node:18-alpine
+# Etapa 1: build da aplicação
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
@@ -8,6 +9,19 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 5173
+RUN npm run build 
 
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
+# Etapa 2: imagem final, usando nginx para servir a build
+FROM nginx:stable-alpine
+
+# Copia os arquivos da build para o diretório padrão do nginx
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Copia configuração personalizada do nginx (opcional)
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+# Expor porta 80, que é a padrão do nginx
+EXPOSE 80
+
+# Comando padrão do nginx
+CMD ["nginx", "-g", "daemon off;"]

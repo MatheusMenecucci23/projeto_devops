@@ -70,7 +70,7 @@ async function calculate() {
   result.value = null
 
   try {
-    const res = await axios.post('http://localhost:8000/calculate', { expression: expression.value })
+    const res = await axios.post('/api/calculate', { expression: expression.value })
     if (res.data.error) {
       error.value = res.data.error
     } else {
