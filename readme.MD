@@ -56,6 +56,7 @@ Para facilitar o gerenciamento dos containers, utilize o Docker Compose.
 ```bash
 docker compose up --build
 ```
+Acessar via http://localhost/
 
 ---
 
