@@ -56,7 +56,7 @@ Para facilitar o gerenciamento dos containers, utilize o Docker Compose.
 ```bash
 docker compose up --build
 ```
-Acessar via http://localhost/
+Acessar a calculadora via http://localhost/
 
 Após as operações, para verificar a inserção no banco de dados só rodar no terminal:
   ```bash
