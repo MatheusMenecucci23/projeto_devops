@@ -84,7 +84,7 @@ async function calculate() {
 
 <style scoped>
 .calculator {
-  max-width: 320px;
+  max-width: 80rem;
   margin: 40px auto;
   background: #222;
   color: white;
