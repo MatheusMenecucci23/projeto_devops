@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-db
+  labels:
+    app: backend-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: backend-db
+    spec: 
+      containers:
+      - name: backend-db
+        image: mysql:5.7
+        ports:
+        - containerPort: 3306
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: "123456789"
+          - name: MYSQL_DATABASE
+            value: "calculadora_db"
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: 1
+          limits:
+            memory: "2Gi"
+            cpu: 2
+        volumeMounts:
+        - name: db-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: db-persistent-storage
+        persistentVolumeClaim:
+          claimName: calculadora-pv-claim
+
