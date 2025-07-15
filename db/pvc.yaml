@@ -1,14 +1,11 @@
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 metadata:
-  name: calculadora-pv
+  name: calculadora-pv-claim
 spec:
-  capacity:
-    storage: 2Gi  # O PV deve atender à solicitação de 2 GiB
+  storageClassName: manual
   accessModes:
-    - ReadWriteOnce  # O volume será montado em apenas um nó por vez
-  persistentVolumeReclaimPolicy: Retain  # Política para manter o volume após a liberação
-  storageClassName: manual  # Deve corresponder ao storageClassName no PVC
-  hostPath:
-    path: /mnt/data  # Caminho no nó onde o volume será armazenado (para Minikube ou testes locais)
-
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi

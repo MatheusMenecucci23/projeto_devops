@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: frontend-image
-          imagePullPolicy: Never
+          image: matheusmenecucci/frontend-image
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:

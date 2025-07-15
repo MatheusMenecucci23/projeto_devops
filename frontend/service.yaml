@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  labels:
+    run: frontend
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      nodePort: 30081  # Porta externa exposta no nó
+  selector:
+    app: frontend
+  type: NodePort  # Expondo o serviço fora do cluster com NodePort
