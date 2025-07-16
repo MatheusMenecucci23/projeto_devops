@@ -24,9 +24,15 @@ spec:
             - name: DB_HOST
               value: "backend-db-service" #nome do service, não mais do conteiner
             - name: DB_USER
-              value: "root"
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: username
             - name: DB_PASSWORD
-              value: "123456789"
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: password
             - name: DB_NAME
               value: "calculadora_db"
           resources:
