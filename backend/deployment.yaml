@@ -19,10 +19,10 @@ spec:
           image: matheusmenecucci/backend-image
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8081
+            - containerPort: 8000
           env:
             - name: DB_HOST
-              value: "mysql-container"
+              value: "backend-db-service" #nome do service, não mais do conteiner
             - name: DB_USER
               value: "root"
             - name: DB_PASSWORD

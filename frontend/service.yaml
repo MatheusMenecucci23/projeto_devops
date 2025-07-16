@@ -6,8 +6,9 @@ metadata:
     run: frontend
 spec:
   ports:
-    - port: 8080
-      targetPort: 8080
+    # a mesma porta que voce expoe no dockerfile é a porta de serviço
+    - port: 80
+      targetPort: 80
       protocol: TCP
       nodePort: 30081  # Porta externa exposta no nó
   selector:

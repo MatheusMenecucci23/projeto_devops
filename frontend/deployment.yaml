@@ -19,7 +19,7 @@ spec:
           image: matheusmenecucci/frontend-image
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
+            - containerPort: 80 # a mesma porta que voce expoe no dockerfile que o conteiner vai expor a aplicação
           env:
             - name: TZ
               value: America/Sao_Paulo

@@ -100,3 +100,32 @@ No prompt do MySQL, execute o comando para visualizar os dados da tabela history
 - **Rede Docker:** Usar uma rede customizada permite que os containers se comuniquem facilmente pelo nome do container (exemplo: `mysql-container`).
 
 ---
+# Projeto Docker - Calculadora Parte 2 
+Utilizando Kubernets(K8S) - Minikube
+
+
+
+## Startar Minikube
+```bash
+Minikube start
+Minikube dashboard
+```
+
+## Entrar nas pastas(backend, db, frontend) e aplicar todos o yaml
+```bash
+kubectl apply -f <name>.yaml
+```
+
+## Criar banco de dados
+```bash
+kubectl get pods
+kubectl exec -it <name-do-pod> -- bin/bash
+
+mysql -u root -p
+Criar o arquivo do init.sql
+```
+## Abrir os serviços que eu quero acessar
+```bash
+minikube service frontend --url
+minikube service backend --url
+```
