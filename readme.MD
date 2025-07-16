@@ -129,3 +129,19 @@ Criar o arquivo do init.sql
 minikube service frontend --url
 minikube service backend --url
 ```
+
+## Modifique o arquivo host
+```bash
+sudo nano /etc/hosts
+```
+
+## Adicione essas linhas
+```bash
+192.168.49.2  calculadora.k8s.local
+192.168.49.2  backend.k8s.local
+```
+
+## Na raiz do projeto
+```bash
+kubectl apply -f ingress.yaml
+```

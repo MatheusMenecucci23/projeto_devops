@@ -10,7 +10,5 @@ spec:
     - port: 80
       targetPort: 80
       protocol: TCP
-      nodePort: 30081  # Porta externa exposta no nó
   selector:
     app: frontend
-  type: NodePort  # Expondo o serviço fora do cluster com NodePort
