@@ -108,6 +108,8 @@ Utilizando Kubernets(K8S) - Minikube
 ## Startar Minikube
 ```bash
 Minikube start
+minikube addons enable
+minikube addons enable ingress
 Minikube dashboard
 ```
 
