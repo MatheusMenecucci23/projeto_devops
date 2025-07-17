@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.global.backend.name }}
+  labels:
+    app: {{ .Values.global.backend.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.global.backend.name }}
+  template:
+    metadata:
+      labels:
+        app:  {{ .Values.global.backend.name }}
+    spec:
+      containers:
+        - name:  {{ .Values.global.backend.name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DB_HOST
+              value: {{ .Release.Name }}-db #nome do service, não mais do conteiner
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name:  {{ .Release.Name }}-db-secret
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name:  {{ .Release.Name }}-db-secret
+                  key: password
+            - name: DB_NAME
+              value: "calculadora_db"
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: 1
+            limits:
+              memory: "2Gi"
+              cpu: 2

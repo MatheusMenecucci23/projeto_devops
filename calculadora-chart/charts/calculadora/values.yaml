@@ -1,0 +1,6 @@
+replicaCount: 1
+
+image:
+  repository: matheusmenecucci/frontend-image
+  tag: "latest"
+  pullPolicy: IfNotPresent

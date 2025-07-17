@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.global.calculadora.name }}
+  labels:
+    app: {{ .Values.global.calculadora.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.global.calculadora.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.global.calculadora.name }}
+    spec:
+      containers:
+        - name: {{ .Release.Name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80 # a mesma porta que voce expoe no dockerfile que o conteiner vai expor a aplicação
+          env:
+            - name: TZ
+              value: America/Sao_Paulo
+            - name: LC_ALL
+              value: pt_BR.UTF-8
+            - name: LANG
+              value: pt_BR.UTF-8
+            - name: LANGUAGE
+              value: pt_BR.UTF-8
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: 1
+            limits:
+              memory: "2Gi"
+              cpu: 2
