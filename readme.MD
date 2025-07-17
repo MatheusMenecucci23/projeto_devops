@@ -7,6 +7,32 @@ Este projeto consiste em uma calculadora interativa. Ao inserir os números e se
 # Projeto Docker - Calculadora Parte final 
 Utilizando Kubernets(K8S) - Minikube
 
+### 1. Rode
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+### 2. Criar banco de dados
+```bash
+kubectl get pods
+kubectl exec -it <name-do-pod> -- bin/bash
+
+mysql -u root -p
+
+CREATE DATABASE IF NOT EXISTS calculadora_db;
+USE calculadora_db;
+
+CREATE TABLE IF NOT EXISTS history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    expression VARCHAR(255) NOT NULL,
+    result DOUBLE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+```
+### Rodar aplicação sem o script
 ## Verifique a branch
 ```bash
 git branch
