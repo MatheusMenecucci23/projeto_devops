@@ -33,11 +33,22 @@ helm lint .
 helm install calculadora .
 ```
 
-## Criar banco de dados
+### 2. Criar banco de dados
 ```bash
 kubectl get pods
 kubectl exec -it <name-do-pod> -- bin/bash
 
 mysql -u root -p
-Criar o arquivo do init.sql
+
+CREATE DATABASE IF NOT EXISTS calculadora_db;
+USE calculadora_db;
+
+CREATE TABLE IF NOT EXISTS history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    expression VARCHAR(255) NOT NULL,
+    result DOUBLE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
 ```
