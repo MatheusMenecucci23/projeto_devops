@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS history (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-Acessa aplicação via http://k8s.local/
+Acesse aplicação via http://k8s.local/
 
 ```
 ### Rodar aplicação sem o script
