@@ -7,6 +7,12 @@ Este projeto consiste em uma calculadora interativa. Ao inserir os números e se
 # Projeto Docker - Calculadora Parte final 
 Utilizando Kubernets(K8S) - Minikube
 
+## Verifique a branch
+```bash
+git branch
+git checkout helm
+```
+
 ## Startar Minikube
 ```bash
 Minikube start
