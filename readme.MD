@@ -26,10 +26,10 @@ sudo nano /etc/hosts
 192.168.49.2  backend.k8s.local
 ```
 
-## Comandos para rodar a aplicação
+## Comandos para rodar a aplicação.
 ### 1. Helm
 ```bash
-helm lint .
+cd calculadora-chart
 helm install calculadora .
 ```
 
