@@ -30,9 +30,9 @@ CREATE TABLE IF NOT EXISTS history (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+```
 Acesse aplicação via http://k8s.local/
 
-```
 ### Rodar aplicação sem o script
 ## Verifique a branch
 ```bash
