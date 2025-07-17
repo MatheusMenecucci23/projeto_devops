@@ -11,5 +11,9 @@ Este projeto consiste em uma calculadora interativa. Ao inserir os números e se
 helm lint .
 helm install calculadora .
 ```
-
+## Não esqueça
+### 1. Instalar o ingress
+```bash
+ minikube addons enable ingress
+```
 Acessar a calculadora via calculadora.k8s.local
