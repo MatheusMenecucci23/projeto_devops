@@ -16,4 +16,4 @@ helm install calculadora .
 ```bash
  minikube addons enable ingress
 ```
-Acessar a calculadora via calculadora.k8s.local
+Acessar a calculadora via http://k8s.local/
