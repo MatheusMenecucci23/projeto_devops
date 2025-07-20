@@ -46,10 +46,10 @@ git checkout helm
 
 ## Startar Minikube
 ```bash
-Minikube start
+minikube start
 minikube addons enable
 minikube addons enable ingress
-Minikube dashboard
+minikube dashboard
 ```
 
 ## Modifique o arquivo host
