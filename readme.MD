@@ -6,14 +6,18 @@ Este projeto consiste em uma calculadora interativa. Ao inserir os números e se
 ---
 # Projeto Docker - Calculadora Parte final 
 Utilizando Kubernets(K8S) - Minikube
-
 ### 1. Rode
+```bash
+git clone --branch helm https://github.com/MatheusMenecucci23/projeto_devops.git
+```
+
+### 2. Rode
 ```bash
 chmod +x setup.sh
 ./setup.sh
 ```
 
-### 2. Criar banco de dados
+### 3. Criar banco de dados
 ```bash
 kubectl get pods
 kubectl exec -it <name-do-pod> -- bin/bash
