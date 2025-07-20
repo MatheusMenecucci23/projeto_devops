@@ -20,7 +20,7 @@ chmod +x setup.sh
 ### 3. Criar banco de dados
 ```bash
 kubectl get pods
-kubectl exec -it <name-do-pod> -- bin/bash
+kubectl exec -it <name-do-pod-db> -- bin/bash
 
 mysql -u root -p
 
