@@ -1,4 +1,9 @@
 #!/bin/bash
+echo "Minikube Start..."
+minikube start
+
+echo "Git clone..."
+git clone https://github.com/MatheusMenecucci23/projeto_devops.git
 
 # Verificar a branch atual do Git
 echo "Verificando a branch do Git..."
@@ -7,6 +12,7 @@ git checkout helm
 
 # Ativar o addon de Ingress no Minikube
 echo "Ativando o addon de Ingress no Minikube..."
+minikube addons enable
 minikube addons enable ingress
 
 # Abrir o dashboard do Minikube
