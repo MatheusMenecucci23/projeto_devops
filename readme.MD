@@ -47,7 +47,7 @@ git checkout helm
 ## Startar Minikube
 ```bash
 minikube start
-minikube addons enable
+minikube addons enable metrics-server
 minikube addons enable ingress
 minikube dashboard
 ```
