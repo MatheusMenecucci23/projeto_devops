@@ -6,7 +6,7 @@ Este projeto consiste em uma calculadora interativa. Ao inserir os números e se
 ---
 # Projeto Docker - Calculadora Parte final 
 Utilizando Kubernets(K8S) - Minikube
-### 1. Rode
+### 1. Git clone direto na branch helm
 ```bash
 git clone --branch helm https://github.com/MatheusMenecucci23/projeto_devops.git
 ```
